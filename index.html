@@ -27,6 +27,10 @@
         max-height: 600px;
         min-width: 700px;
     }
+
+    ol li {
+        list-style-position: inside;
+    }
 </style>
 
 <body>
@@ -36,22 +40,17 @@
                 <p><b>
                         Sortowanie przez wstawianie
                     </b></p>
-                Sortowanie przez wstawianie to algorytm, który porządkuje elementy w zbiorze,
-                iteracyjnie wstawiając każdy kolejny element na właściwe miejsce w posortowanej części zbioru.
-                Proces
-                rozpoczyna się od drugiego elementu, traktując pierwszy jako posortowany. Dla każdego elementu
-                porównuje
-                się go z wcześniejszymi, przesuwając większe elementy w prawo, aby zrobić miejsce na wstawienie
-                bieżącego elementu.
-
-                Algorytm działa w kilku krokach: wybiera bieżący element, porównuje go z elementami w posortowanej
-                części, przesuwa większe elementy i wstawia bieżący element na odpowiednią pozycję. Powtarza te
-                kroki
-                dla wszystkich elementów, aż zbiór zostanie posortowany.
-
-                Przykładowo, dla zbioru [5, 3, 8, 6], algorytm najpierw wstawia 3 przed 5, potem pozostawia 8 na
-                miejscu, a na końcu umieszcza 6 między 5 a 8, uzyskując [3, 5, 6, 8]. Dzięki takiemu podejściu
-                posortowana część zbioru rośnie stopniowo z każdym krokiem.
+                <ol>
+                    <li>Przejdź przez zbiór od drugiego elementu do ostatniego.</li>
+                    <li>Wybierz bieżący element i oznacz go jako element do wstawienia.</li>
+                    <li>Porównaj wybrany element z elementami wcześniejszymi, zaczynając od elementu bezpośrednio przed
+                        nim.</li>
+                    <li>Jeżeli istnieje element przed elementem wybranym i jest od niego większy, przesuń ten element w
+                        prawo.</li>
+                    <li>Wstaw wybrany element w miejsce "dziury" powstałej po przesunięciu elementów większych.</li>
+                    <li> Powtarzaj kroki 2-5 dla każdego kolejnego elementu w zbiorze. </li>
+                    <li>Zakończ proces sortowania i wyeksportuj uporządkowany zbiór danych </li>
+                </ol>
             </td>
             <td>
                 <img src="sortowanie_przez_Wstawianie.png" alt="Image 1">
@@ -67,17 +66,18 @@
                 <p>
                     <b>Sortowanie przez wybieranie</b>
                 </p>
-                Sortowanie przez wybieranie to algorytm, który polega na znajdowaniu najmniejszego
-                elementu z nieposortowanej części zbioru i zamienianiu go z elementem na początku tej części. Proces ten
-                jest powtarzany dla każdego elementu, aż cała tablica zostanie posortowana. W każdej iteracji
-                najmniejszy element jest identyfikowany i zamieniany z aktualnie analizowaną pozycją. Posortowana część
-                tablicy rośnie z każdą iteracją.
+                <ol>
+                    <li>Przejdź przez cały zestaw danych, porównując sąsiednie elementy.</li>
+                    <li>Jeśli sąsiadujące ze sobą elementy są w złej kolejności (np. element poprzedni jest większy od
+                        następnego), zamień je miejscami.</li>
+                    <li>Powtórz krok 1 dla wszystkich pozostałych elementów, aż dotrzesz do ostatniej pary elementów.
+                    </li>
+                    <li>Po zakończeniu pierwszej iteracji największy element powinien znaleźć się na końcu kolekcji.
+                    </li>
+                    <li>Powtórz kroki 1-4 dla n-1 elementów, gdzie n jest rozmiarem kolekcji.</li>
+                    <li>Po zakończeniu wszystkich iteracji, cała kolekcja powinna być uporządkowana rosnąco.</li>
+                </ol>
 
-                Dane wejściowe to tablica d[], a wynikiem działania algorytmu jest uporządkowana tablica. Na przykład,
-                dla zbioru [7, 2, 1, 6, 8, 5, 3, 4], algorytm znajdzie najmniejszy element 1, zamieni go z 7, a
-                następnie wykona podobne operacje dla pozostałych elementów, uzyskując ostatecznie [1, 2, 3, 4, 5, 6, 7,
-                8]. Algorytm jest prosty, ale mało wydajny dla dużych zbiorów, dlatego najlepiej sprawdza się przy
-                niewielkich danych.
             </td>
             <td>
                 <img src="przez_wybieranie.png" alt="Image 1">
@@ -92,12 +92,20 @@
                 <p>
                     <b>Quicksort</b>
                 </p>
-                Sortowanie szybkie (Quicksort) to algorytm "dziel i zwyciężaj", który dzieli zbiór na podzbiory na
-                podstawie wybranego elementu (pivot). Elementy mniejsze od pivota trafiają na lewą stronę, większe na
-                prawą. Proces podziału powtarza się rekurencyjnie, aż zbiór zostanie podzielony na jednoelementowe
-                podzbiory, które następnie są łączone w posortowaną tablicę. Dane wejściowe to zbiór d[] i indeksy lewy
-                oraz prawy, a dane wyjściowe to posortowana tablica. Algorytm jest wydajny, dzieląc zbiór na mniejsze
-                części i rekurencyjnie sortując je, aż osiągnie się pełne uporządkowanie.
+                <ol>
+                    <li>Wybierz element ze zbioru jako punkt odniesienia, który nazywamy osią (pivot). Może to być
+                        dowolny element, na przykład pierwszy, ostatni lub losowy element.</li>
+                    <li>Podziel zbiór na dwie części: elementy mniejsze od osi i elementy większe od osi.</li>
+                    <li>Przenieś wszystkie elementy mniejsze od osi na lewą stronę, a wszystkie elementy większe od osi
+                        na prawą stronę.</li>
+                    <li>Rekurencyjnie zastosuj kroki 1-3 dla obu podzbiorów, tj. dla zbioru elementów mniejszych od osi
+                        oraz dla zbioru elementów większych od osi.</li>
+                    <li>Po zakończeniu rekurencyjnych wywołań sortowania, wszystkie podzbiory zostaną uporządkowane.
+                    </li>
+                    <li>Połącz podzbiory, umieszczając najpierw podzbiór elementów mniejszych od osi, następnie samą oś
+                        i na końcu podzbiór elementów większych od osi.</li>
+                </ol>
+
             </td>
             <td>
                 <img src="quicksort_j.png" alt="Image 1">
@@ -112,13 +120,24 @@
                 <p>
                     <b>Sortowanie przez scalanie</b>
                 </p>
-                Sortowanie przez scalanie (merge sort) to algorytm działający na zasadzie "dziel i zwyciężaj". Zbiór
-                danych jest dzielony na mniejsze podzbiory, które są sortowane osobno, a następnie scalane w jeden
-                posortowany zbiór. Na początku zbiór dzieli się na dwie połowy, aż każda część zawiera tylko jeden
-                element. Następnie elementy są porównywane i łączone w posortowane podzbiory, a proces scalania powtarza
-                się, aż cały zbiór zostanie posortowany. Algorytm jest mniej wydajny dla małych zbiorów, ale bardzo
-                skuteczny dla dużych. Działa na danych wejściowych w postaci zbioru d[], a po wykonaniu zwraca
-                posortowaną tablicę.
+                <ol>
+                    <li>Jeśli zbiór zawiera jeden lub zero elementów, jest już posortowany. Zwróć ten zbiór.</li>
+                    <li>Podziel zbiór na dwie połowy.</li>
+                    <li>Rekurencyjnie zastosuj algorytm sortowania przez scalanie dla każdej z połówek.</li>
+                    <li>Scalaj posortowane połówki w celu utworzenia posortowanego zbioru:
+
+                    <li>Utwórz nową tablicę lub listę, która będzie przechowywać scalone elementy.</li>
+                    <li>Porównuj elementy z obu połówek, zaczynając od ich początków.</li>
+                    <li>Dodawaj mniejszy element do scalanej tablicy/listy.</li>
+                    <li>Jeśli jedna z połówek zostanie już w pełni przeanalizowana, dodaj pozostałe elementy z
+                        drugiej połowy do scalanej tablicy/listy.</li>
+                    <li>Powtarzaj te kroki, aż obie połówki zostaną w pełni rozwiązane i wszystkie elementy
+                        zostaną umieszczone w scalonej tablicy/liście.</li>
+
+                    </li>
+                    <li>Zwróć scalony zbiór.</li>
+                </ol>
+
             </td>
             <td>
                 <img src="przez_scalanie.png" alt="Image 1">
@@ -134,16 +153,18 @@
             <td>
                 <p><b>Sortowanie bąbelkowe</b>
                 </p>
-                Sortowanie bąbelkowe to prosty algorytm, który wielokrotnie porównuje sąsiednie elementy w
-                zbiorze i zamienia je miejscami, jeśli są w złej kolejności. W każdej iteracji największy element
-                "wypływa" na koniec, a proces powtarza się dla reszty elementów, aż cała tablica będzie posortowana.
+                <ol>
+                    <li>Przejdź przez cały zestaw danych, porównując sąsiednie elementy.</li>
+                    <li>Jeśli sąsiadujące ze sobą elementy są w złej kolejności (np. element poprzedni jest większy od
+                        następnego), zamień je miejscami.</li>
+                    <li>Powtórz krok 1 dla wszystkich pozostałych elementów, aż dotrzesz do ostatniej pary elementów.
+                    </li>
+                    <li>Po zakończeniu pierwszej iteracji największy element powinien znaleźć się na końcu kolekcji.
+                    </li>
+                    <li>Powtórz kroki 1-4 dla n-1 elementów, gdzie n jest rozmiarem kolekcji.</li>
+                    <li>Po zakończeniu wszystkich iteracji, cała kolekcja powinna być uporządkowana rosnąco.</li>
+                </ol>
 
-                Algorytm działa w kilku przebiegach, za każdym razem ignorując ostatni posortowany element. Dla
-                przykładu, dla zbioru [7, 2, 5, 3], algorytm najpierw przesunie największy element 7 na koniec, a potem
-                uporządkuje resztę, uzyskując [2, 3, 5, 7].
-
-                Choć prosty i intuicyjny, sortowanie bąbelkowe jest mało wydajne dla dużych zbiorów, dlatego używane
-                jest głównie dla niewielkich danych lub w celach dydaktycznych.
             </td>
             <td>
                 <img src="bombelkowe.png" alt="Image 1">
